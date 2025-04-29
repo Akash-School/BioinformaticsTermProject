@@ -11,24 +11,29 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 from sklearn.inspection import permutation_importance
 import numpy as np
 
-glioma_dataset = fetch_ucirepo(id=759)
+#glioma_dataset = fetch_ucirepo(id=759)
+glioma_dataset = pd.read_csv('gliomaDataset/TCGA_InfoWithGrade.csv')
 #data preprocessing
-X = glioma_dataset.data.features
-X = X.drop(['Age_at_diagnosis', 'Race'], axis=1) 
-y = glioma_dataset.data.targets 
+#X = glioma_dataset.data.features
+#X = X.drop(['Age_at_diagnosis', 'Race'], axis=1) 
+#y = glioma_dataset.data.targets 
 
-categorical_cols = X.select_dtypes(include=['object']).columns.tolist()  
+y= glioma_dataset['Grade']
+X = glioma_dataset.drop(columns =['Age_at_diagnosis', 'Race', 'Grade'], axis = 1)
+
+
+#categorical_cols = X.select_dtypes(include=['object']).columns.tolist()  
  
-print(categorical_cols)
+#print(categorical_cols)
 
-print(glioma_dataset.metadata) 
+#print(glioma_dataset.metadata) 
 
-print(glioma_dataset.variables) 
+#print(glioma_dataset.variables) 
 
 X_train, X_test, Y_train, Y_test = train_test_split(X,y, test_size = 0.3, random_state=42)
 
 #model
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model = RandomForestClassifier(n_estimators=1000, random_state=42)
 rf_model.fit(X_train, Y_train)
 
 y_pred = rf_model.predict(X_test)
