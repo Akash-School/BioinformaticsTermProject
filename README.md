@@ -7,6 +7,6 @@ This project explores the use of the Random Forest algorithm to analyze glioma d
 # Authors
 This project was developed by Akash Hebbar and Chih Liu. 
 # Usage Instructions
-To use this project, users need to obtain a glioma gene expression dataset (such as TCGA or CGGA), and run the 'main.py' script using Python. The script handles data loading, preprocessing, model training and evaluation, and will output results including accuracy and a feature importance plot.
+To use this project, users need to obtain a glioma gene expression dataset (such as TCGA or CGGA), and run the 'gliomaClassification.py' script using Python. The script handles data loading, preprocessing, model training and evaluation, and will output results including accuracy, a confusion matrix, and a feature importance plot.
 # Installation Instructions
-Before running the project, it is required to install the Python packages. After cloning the repository, dependencies can be installed by running 'pip install -r requirements.txt', which includes like 'scikit-learn', 'pandas', 'numpy', and 'matplotlib'.
+Before running the project, it is required to install some Python packages. After cloning the repository, dependencies can be installed by running 'pip install "requirement"', where "requirement" would be replaced with the package names. The package names that are used in this program are 'scikit-learn', 'pandas', 'numpy', and 'matplotlib'.
